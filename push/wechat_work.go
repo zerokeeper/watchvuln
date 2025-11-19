@@ -30,7 +30,7 @@ func NewWechatWork(config *WechatWorkConfig) TextPusher {
 func (d *WechatWork) PushText(s string) error {
 	// fixme: wxworkbot 不支持 text 类型
 	d.log.Infof("sending text %s", s)
-	msg := wxworkbot.Markdown{Content: s}
+	msg := wxworkbot.Text{Content: s}
 	err := d.client.Send(msg)
 	if err != nil {
 		return errors.Wrap(err, "wechat-work")
