@@ -40,7 +40,7 @@ func (d *WechatWork) PushText(s string) error {
 
 func (d *WechatWork) PushMarkdown(title, content string) error {
 	d.log.Infof("sending markdown %s", title)
-	msg := wxworkbot.Markdown{Content: content}
+	msg := wxworkbot.Text{Content: content}
 	err := d.client.Send(msg)
 	if err != nil {
 		return errors.Wrap(err, "wechat-work")
